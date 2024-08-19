@@ -62,12 +62,13 @@ public class Propietario {
         this.listVehiculosAsociados.add(vehiculo);
     }
 
-    public Vehiculo buscarVehiculo(String placa){
-        for (Vehiculo vehiculo : listVehiculosAsociados){
-            if (vehiculo.getPlaca().equals(placa)){
-                return vehiculo;
-            }
-        }
-        return null;
+    @Override
+    public String toString() {
+        return "Propietario " +
+                " \n nombre= '" + nombre +
+                " \n cedula= '" + cedula +
+                "\n email= '" + email +
+                "\n celular= '" + celular +
+                " \n listVehiculosAsociados= " + listVehiculosAsociados;
     }
 }

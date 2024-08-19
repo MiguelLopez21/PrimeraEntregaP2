@@ -47,5 +47,12 @@ public class VehiculoTransporte extends Vehiculo {
         return obtenerPesoUsuarios;
     }
 
+    @Override
+    public String toString() {
+        return " VehiculoTransporte " +
+                " \n maxPasajeros= " + maxPasajeros +
+                "\n  listUsuariosAsociados=" + listUsuariosAsociados +
+                '}';
+    }
 }
 

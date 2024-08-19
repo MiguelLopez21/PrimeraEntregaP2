@@ -48,6 +48,22 @@ public class EmpresaTransporte {
         this.listUsuarios = listUsuarios;
     }
 
+    public void añadirPropietarios (Propietario propietario) {
+        listPropietarios.add(propietario);
+    }
+
+    public void añadirVehiculoCarga(VehiculoCarga vehiculoCarga) {
+        listVehiculosCarga.add(vehiculoCarga);
+    }
+
+    public void añadirVehiculoTransporte(VehiculoTransporte vehiculoTransporte) {
+        listVehiculosTransporte.add(vehiculoTransporte);
+    }
+
+    public void añadirUsuario (Usuario usuario) {
+        listUsuarios.add(usuario);
+    }
+
     public void usuariosTransportados (String placa){
         for (VehiculoTransporte vehiculoTransporte : listVehiculosTransporte) {
             if (vehiculoTransporte.getPlaca().equals(placa)) {
@@ -58,5 +74,42 @@ public class EmpresaTransporte {
         System.out.println("Este vehiculo no fue encontrado");
     }
 
+    public int usuariosMayores (){
+        int count = 0;
+        for (Usuario usuario : listUsuarios) {
+            if (usuario.getEdad() > 40);{
+                count++;
+            }
+        }
+        return count;
+    }
 
+    public int usuariosRangoEdad (int edadMinima, int edadMaxima){
+        int edad = 0;
+        for (Usuario usuario : listUsuarios) {
+            if (usuario.getEdad() >= edadMinima && usuario.getEdad() <= edadMaxima){
+                edad++;
+            }
+        }
+        return edad;
+    }
+
+    public Vehiculo buscarVehiculo (String placa){
+        for (VehiculoCarga vehiculoCarga : listVehiculosCarga) {
+            if (vehiculoCarga.getPlaca().equals(placa)) {
+                return vehiculoCarga;
+            }
+        }
+        for (VehiculoTransporte vehiculoTransporte : listVehiculosTransporte) {
+            if (vehiculoTransporte.getPlaca().equals(placa)) {
+                return vehiculoTransporte;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "EmpresaTransporte{}";
+    }
 }

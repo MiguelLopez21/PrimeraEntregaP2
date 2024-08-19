@@ -45,5 +45,16 @@ public abstract class Vehiculo {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                ", color='" + color + '\'' +
+                ", propietarioAsociado=" + propietarioAsociado +
+                '}';
+    }
 }
 

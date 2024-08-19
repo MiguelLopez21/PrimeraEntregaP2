@@ -17,4 +17,12 @@ public class VehiculoCarga extends Vehiculo {
     public void setCapacidadCarga(double capacidadCarga) {
         this.capacidadCarga = capacidadCarga;
     }
+
+    @Override
+    public String toString() {
+        return "VehiculoCarga " +
+                "\n capacidadCarga= " + capacidadCarga +
+                "\n numeroEjes=" + numeroEjes +
+                '}';
+    }
 }

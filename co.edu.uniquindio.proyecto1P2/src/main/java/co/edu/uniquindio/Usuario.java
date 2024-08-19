@@ -2,11 +2,11 @@ package co.edu.uniquindio;
 
 public class Usuario {
     private String nombre;
-    private String edad;
+    private int edad;
     private double peso;
     private VehiculoTransporte vehiculoAsociado;
 
-    public Usuario(String nombre, String edad, double peso) {
+    public Usuario(String nombre, int edad, double peso) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
@@ -20,11 +20,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
@@ -34,5 +34,15 @@ public class Usuario {
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", peso=" + peso +
+                ", vehiculoAsociado=" + vehiculoAsociado +
+                '}';
     }
 }
