@@ -12,6 +12,16 @@ public class EmpresaTransporte {
     private Collection<VehiculoTransporte> listVehiculosTransporte;
     private Collection<Usuario> listUsuarios;
 
+    public Collection<Usuario> getListUsuariosPeso() {
+        return listUsuariosPeso;
+    }
+
+    public void setListUsuariosPeso(Collection<Usuario> listUsuariosPeso) {
+        this.listUsuariosPeso = listUsuariosPeso;
+    }
+
+    private Collection<Usuario> listUsuariosPeso;
+
     /**
      * Método Constructor de la clase Empresa Transporte
      *
@@ -22,6 +32,7 @@ public class EmpresaTransporte {
         listVehiculosCarga = new ArrayList<>();
         listVehiculosTransporte = new ArrayList<>();
         listUsuarios = new ArrayList<>();
+        listUsuariosPeso = new ArrayList<>();
     }
 
     /**
@@ -132,32 +143,18 @@ public class EmpresaTransporte {
         listUsuarios.add(usuario);
     }
 
-    /**
-     * Método para imprimir el número de usuarios transportados por un vehículo de transporte
-     *
-     * @param placa placa con la que se identifica el vehículo
-     */
-    public void usuariosTransportados (String placa){
-        for (VehiculoTransporte vehiculoTransporte : listVehiculosTransporte) {
-            if (vehiculoTransporte.getPlaca().equals(placa)) {
-                int numUsuariosTransportados = vehiculoTransporte.contarUsuariosTransportados();
-                System.out.println("El vehículo con placa  " + placa + "  transportó "+ numUsuariosTransportados +" usuario(s)");
-            }
-        }
-        System.out.println("No se encontrró un vehículo registrado con la placa " + placa);
-    }
 
     /**
      * Método para imprimir el número de propietarios de un vehículo mayores a 40 años
      */
-    public void propietariosMayores (){
+    public int propietariosMayores (){
         int cantidad = 0;
         for (Propietario propietario : listPropietarios) {
             if (propietario.getEdad() > 40){
                 cantidad++;
             }
         }
-        System.out.println("Hay un total de " + cantidad + " propietario(s) mayores a 40 años");
+        return cantidad;
     }
 
     /**
@@ -166,36 +163,44 @@ public class EmpresaTransporte {
      * @param edadMinima la edad minina del rango
      * @param edadMaxima la edad máxima del rango
      */
-    public void  rangoEdadUsuarios (int edadMinima, int edadMaxima){
+    public int rangoEdadUsuarios (int edadMinima, int edadMaxima){
         int cantidad = 0;
         for (Usuario usuario : listUsuarios) {
-            if (usuario.getEdad() >= edadMinima && usuario.getEdad() <= edadMaxima){
+            if (usuario.getEdad() >= edadMinima && usuario.getEdad() <= edadMaxima) {
                 cantidad++;
             }
         }
-        System.out.println("Hay un total de " + cantidad + " usuario(s) con un rango de edad entre" + edadMinima + " y " + edadMaxima);
+        return cantidad;
     }
 
     /**
-     * Método para ubicar un véhiculo por su placa en las colecciones de vehículos de carga y transporte
+     * Método para ubicar un véhiculo por su placa en la coleccion de vehiculos de transporte y obtener el numero de usuarios asociados
      *
      * @param placa del vehículo a buscar
      * @return devuelve el vehículo encontrado
      */
-    public Vehiculo buscarVehiculo (String placa){
-        for (VehiculoCarga vehiculoCarga : listVehiculosCarga) {
-            if (vehiculoCarga.getPlaca().equals(placa)) {
-                return vehiculoCarga;
-            }
-        }
+    public int buscarVehiculo (String placa) {
         for (VehiculoTransporte vehiculoTransporte : listVehiculosTransporte) {
             if (vehiculoTransporte.getPlaca().equals(placa)) {
-                return vehiculoTransporte;
+                return vehiculoTransporte.getListUsuariosAsociados().size();
             }
+
         }
-        return null;
+        return 0;
+
     }
 
+    /**
+     * Método para identificar a los usuarios que coincidan con el peso indicado
+     * @param peso
+     */
+    public void UsuariosEnElPeso (double peso){
+        for(Usuario usuario : listUsuarios){
+            if (usuario.getPeso() >= peso){
+                listUsuariosPeso.add(usuario);
+            }
+        }
+    }
     /**
      * Método toString que devuelve una representación en cadena de la instancia de "Empresa Transporte"
      *
@@ -207,6 +212,7 @@ public class EmpresaTransporte {
                 "Lista de Propietarios: " + listPropietarios + "\n" +
                 "lLista de Vehiculos de Carga: " + listVehiculosCarga + "\n" +
                 "Lista de Vehículos de Transporte: " + listVehiculosTransporte + "\n" +
-                "Lista de Usuarios " + listUsuarios ;
+                "Lista de Usuarios " + listUsuarios + "\n" +
+                "Lista de usuarios en el peso "+ listUsuariosPeso;
     }
 }

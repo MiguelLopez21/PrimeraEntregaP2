@@ -1,5 +1,7 @@
 package co.edu.uniquindio;
 
+import java.util.Collection;
+
 /**
  * Clase que presenta a un usuario
  */
@@ -7,7 +9,7 @@ public class Usuario {
     private String nombre;
     private int edad;
     private double peso;
-    private VehiculoTransporte vehiculoAsociado;
+    private Collection<VehiculoTransporte> vehiculosAsociados;
 
     /**
      * Método Constructor de la clase Usuario
@@ -85,7 +87,7 @@ public class Usuario {
      * @param vehiculo que se asocia al usuario
      */
     public  void asociarVehiculo (VehiculoTransporte vehiculo){
-        vehiculoAsociado = vehiculo;
+        vehiculosAsociados.add(vehiculo);
     }
 
     /**
