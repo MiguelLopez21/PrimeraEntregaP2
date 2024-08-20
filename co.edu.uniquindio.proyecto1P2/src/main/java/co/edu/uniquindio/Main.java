@@ -75,6 +75,6 @@ public class Main {
         JOptionPane.showMessageDialog(null, "El numero de propietarios mayores a 40 años es: " + empresaTransporte.propietariosMayores());
         int edadMinima = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el edad minima de usuarios: "));
         int edadMaxima = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el edad maxima de usuarios: "));
-        JOptionPane.showMessageDialog(null, "El numero de usuarios entre el rango de edad es: " + empresaTransporte.rangoEdadUsuarios(edadMinima, edadMaxima));
+        JOptionPane.showMessageDialog(null, "El numero de usuarios entre el rango de edad es: " + empresaTransporte.rangoEdadUsuarios(edadMinima, edadMaxima));+
     }
 }
