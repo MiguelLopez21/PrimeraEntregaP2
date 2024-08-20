@@ -37,22 +37,21 @@ public class VehiculoTransporte extends Vehiculo {
         return listUsuariosAsociados.size();
     }
 
-    public Collection<Usuario>listPesoUsuarios (double peso){
-        Collection<Usuario> obtenerPesoUsuarios = new ArrayList<>();
+    public Collection<Usuario> listPesoUsuarios (double peso){
+        Collection<Usuario> buscarPesoUsuarios = new ArrayList<>();
         for (Usuario usuario : listUsuariosAsociados){
             if (usuario.getPeso() > peso){
-                obtenerPesoUsuarios.add(usuario);
+                buscarPesoUsuarios.add(usuario);
             }
         }
-        return obtenerPesoUsuarios;
+        return buscarPesoUsuarios;
     }
 
     @Override
     public String toString() {
-        return " VehiculoTransporte " +
-                " \n maxPasajeros= " + maxPasajeros +
-                "\n  listUsuariosAsociados=" + listUsuariosAsociados +
-                '}';
+        return " VehiculoTransporte \n " +
+                " maxPasajeros: " + maxPasajeros + "\n" +
+                "listUsuariosAsociados=" + listUsuariosAsociados  + "\n" ;
     }
 }
 

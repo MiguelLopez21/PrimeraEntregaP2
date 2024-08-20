@@ -18,11 +18,22 @@ public class VehiculoCarga extends Vehiculo {
         this.capacidadCarga = capacidadCarga;
     }
 
+    public int getNumeroEjes() {
+        return numeroEjes;
+    }
+
+    public void setNumeroEjes(int numeroEjes) {
+        this.numeroEjes = numeroEjes;
+    }
+
     @Override
     public String toString() {
-        return "VehiculoCarga " +
-                "\n capacidadCarga= " + capacidadCarga +
-                "\n numeroEjes=" + numeroEjes +
-                '}';
+        return "Vehiculo Carga \n " +
+                "Placa: "  + getPlaca() + "\n" +
+                "Modelo: " + getModelo() + "\n" +
+                "Marca: " + getMarca() + "\n" +
+                "Color: " + getColor() + "\n" +
+                "Capacidad Carga: " + getCapacidadCarga() + "\n" +
+                "Numero Ejes: " + getNumeroEjes() + "\n";
     }
 }

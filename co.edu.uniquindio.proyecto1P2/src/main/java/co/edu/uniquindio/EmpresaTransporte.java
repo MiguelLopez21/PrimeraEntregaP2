@@ -10,8 +10,8 @@ public class EmpresaTransporte {
     private Collection<Usuario> listUsuarios;
 
     public EmpresaTransporte() {
-        listPropietarios = new ArrayList<Propietario>();
-        listVehiculosCarga = new ArrayList<VehiculoCarga>();
+        listPropietarios = new ArrayList<>();
+        listVehiculosCarga = new ArrayList<>();
         listVehiculosTransporte = new ArrayList<>();
         listUsuarios = new ArrayList<>();
     }
@@ -68,30 +68,31 @@ public class EmpresaTransporte {
         for (VehiculoTransporte vehiculoTransporte : listVehiculosTransporte) {
             if (vehiculoTransporte.getPlaca().equals(placa)) {
                 int numUsuariosTransportados = vehiculoTransporte.contarUsuariosTransportados();
-                System.out.println("El vehiculo con placa  " + placa + "  transporto "+ numUsuariosTransportados +" usuario(s)");
+                System.out.println("El vehículo con placa  " + placa + "  transportó "+ numUsuariosTransportados +" usuario(s)");
             }
         }
-        System.out.println("Este vehiculo no fue encontrado");
+        System.out.println("No se encontrró un vehículo registrado con la placa " + placa);
     }
 
-    public int usuariosMayores (){
-        int count = 0;
-        for (Usuario usuario : listUsuarios) {
-            if (usuario.getEdad() > 40);{
-                count++;
+    public void propietariosMayores (){
+        int cantidad = 0;
+        for (Propietario propietario : listPropietarios) {
+            if (propietario.getEdad() > 40){
+                cantidad++;
             }
         }
-        return count;
+        System.out.println("Hay un total de " + cantidad + " propietario(s) mayores a 40 años");
     }
 
-    public int usuariosRangoEdad (int edadMinima, int edadMaxima){
-        int edad = 0;
+    public void  rangoEdadUsuarios (int edadMinima, int edadMaxima){
+        int cantidad = 0;
         for (Usuario usuario : listUsuarios) {
             if (usuario.getEdad() >= edadMinima && usuario.getEdad() <= edadMaxima){
-                edad++;
+                cantidad++;
             }
         }
-        return edad;
+        System.out.println("Hay un total de " + cantidad + " usuario(s) con un rango de edad entre" + edadMinima + " y " + edadMaxima);
+
     }
 
     public Vehiculo buscarVehiculo (String placa){
@@ -110,6 +111,10 @@ public class EmpresaTransporte {
 
     @Override
     public String toString() {
-        return "EmpresaTransporte{}";
+        return "EmpresaTransporte \n" +
+                "Lista de Propietarios: " + listPropietarios + "\n" +
+                "lLista de Vehiculos de Carga: " + listVehiculosCarga + "\n" +
+                "Lista de Vehículos de Transporte: " + listVehiculosTransporte + "\n" +
+                "Lista de Usuarios " + listUsuarios ;
     }
 }

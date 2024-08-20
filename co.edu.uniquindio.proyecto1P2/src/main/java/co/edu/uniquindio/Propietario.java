@@ -8,13 +8,15 @@ public class Propietario {
     private String cedula;
     private String email;
     private String celular;
+    private int edad;
     private Collection<Vehiculo> listVehiculosAsociados;
 
-    public Propietario(String nombre, String cedula, String email, String celular) {
+    public Propietario(String nombre, String cedula, String email, String celular, int edad) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.email = email;
         this.celular = celular;
+        this.edad = edad;
         this.listVehiculosAsociados = new ArrayList<Vehiculo>();
     }
 
@@ -50,6 +52,14 @@ public class Propietario {
         this.celular = celular;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public Collection<Vehiculo> getListVehiculosAsociados() {
         return listVehiculosAsociados;
     }
@@ -64,11 +74,12 @@ public class Propietario {
 
     @Override
     public String toString() {
-        return "Propietario " +
-                " \n nombre= '" + nombre +
-                " \n cedula= '" + cedula +
-                "\n email= '" + email +
-                "\n celular= '" + celular +
-                " \n listVehiculosAsociados= " + listVehiculosAsociados;
+        return "Propietario \n " +
+                "Nombre: " + nombre + "\n " +
+                "Cedula: " + cedula + "\n " +
+                "Email: " + email + "\n " +
+                "Celular: " + celular + "\n " +
+                "Edad: " + edad + "\n " +
+                "listVehiculosAsociados: " + listVehiculosAsociados + "\n";
     }
 }

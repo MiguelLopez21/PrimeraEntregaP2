@@ -36,13 +36,15 @@ public class Usuario {
         this.peso = peso;
     }
 
+    public  void asociarVehiculo (VehiculoTransporte vehiculo){
+        vehiculoAsociado = vehiculo;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", peso=" + peso +
-                ", vehiculoAsociado=" + vehiculoAsociado +
-                '}';
+        return "Usuario del transporte \n" +
+                "Nombre: " + getNombre() + "\n" +
+                "Edad: " + getEdad() + "\n" +
+                "Peso: " + String.format("%.2f", peso)+ "\n";
     }
 }
